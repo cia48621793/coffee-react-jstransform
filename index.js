@@ -1,1 +1,1 @@
-module.exports = require('./dist/js-syntax-transform');
+module.exports = require('./src/js-syntax-transform');

@@ -1,16 +1,13 @@
-var jsSyntaxTransform, transform, visitors;
+var transform, visitors;
 
 visitors = require('react-tools/vendor/fbtransform/visitors');
-
 transform = require('jstransform').transform;
 
-jsSyntaxTransform = function(input, options) {
+module.exports = function(input, options) {
   var visitorList;
   if (options == null) {
-    options = {};
+    options = {es6: true, react: true};
   }
-  visitorList = visitors.getVisitorsBySet(['react']);
+  visitorList = visitors.getVisitorsBySet(['react', 'harmony']);
   return transform(visitorList, input, options).code;
 };
-
-module.exports = jsSyntaxTransform;
